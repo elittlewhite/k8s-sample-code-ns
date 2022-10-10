@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  namespace: springio
+data:
+  initdb.sql: |
+    DROP DATABASE IF EXISTS `demo`;
+    CREATE DATABASE `demo`;
+    USE `demo`;
+    
+    SET FOREIGN_KEY_CHECKS=0;
+    
+    DROP TABLE IF EXISTS `users`;
+    CREATE TABLE `users` (
+      `id` bigint(20) NOT NULL AUTO_INCREMENT,
+      `userName` varchar(32) DEFAULT NULL,
+      `passWord` varchar(32) DEFAULT NULL,
+      `nickName` varchar(32) DEFAULT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+    
+    LOCK TABLES `users` WRITE;
+    
+    INSERT INTO `users` (`id`, `userName`, `passWord`, `nickName`)
+    VALUES 
+        (1,'kite chen','123','kite');
+    
+    UNLOCK TABLES;
+    
+    GRANT ALL PRIVILEGES ON demo.* TO 'admin'@'%';

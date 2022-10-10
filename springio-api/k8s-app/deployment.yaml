@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: springio-demo
+  name: springio-demo
+  namespace: springio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springio-demo
+  template:
+    metadata:
+      labels:
+        app: springio-demo
+    spec:
+      containers:
+      - image: elittlewhite/springio-demo:1.0.0
+        name: springio-demo
+        ports:
+            - containerPort: 8080
+        imagePullPolicy: Always
+        #https://kubernetes.io/docs/concepts/containers/images/#updating-images

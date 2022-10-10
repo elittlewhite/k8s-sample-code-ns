@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Specify the refresh internal in seconds. -->
+<Configuration monitorInterval="10" level="WARN">
+	<Properties>
+		<Property name="appName">springio</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			  <JSONLayout complete="false" compact="true" eventEol="true"
+				properties="true" stacktraceAsString="false">
+				<KeyValuePair key="timestamp" value="$${date:yyyy-MM-dd'T'HH:mm:ss.SSSZ}" />
+				<KeyValuePair key="appName" value="$${appName}" />
+				<KeyValuePair key="hostName" value="$${hostName}" />
+			</JSONLayout>
+		</Console>
+	</Appenders>
+
+	<Loggers>		
+		<AsyncRoot level="INFO">
+			<AppenderRef ref="console" />
+		</AsyncRoot>		
+	</Loggers>
+</Configuration>

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springio-demo
+  name: springio-demo
+  namespace: springio
+spec:
+  selector:
+    app: springio-demo
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
