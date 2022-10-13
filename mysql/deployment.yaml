@@ -4,7 +4,7 @@ metadata:
   labels:
     app: mysql
   name: mysql
-  namespace: springio
+  namespace: mysqldb
 spec:
   replicas: 1
   selector:

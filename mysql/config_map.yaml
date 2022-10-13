@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql-configmap
-  namespace: springio
+  namespace: mysqldb
 data:
   initdb.sql: |
     DROP DATABASE IF EXISTS `demo`;

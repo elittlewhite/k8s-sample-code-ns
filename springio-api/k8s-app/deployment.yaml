@@ -16,7 +16,7 @@ spec:
         app: springio-demo
     spec:
       containers:
-      - image: elittlewhite/springio-demo:1.0.0
+      - image: elittlewhite/springio-demo:1.0.1
         name: springio-demo
         ports:
             - containerPort: 8080
